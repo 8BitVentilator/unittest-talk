@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="css/theme/white.css" id="theme" />
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/highlight_vs.css">
+		<link rel="stylesheet" href="css/custom/highlight_vs.css">
 
 		<!-- eigene Styles -->
 		<link rel="stylesheet" href="css/custom/jugendhackt.css" />
@@ -65,7 +65,7 @@
 						<ul>
 							<li class="fragment">Ein Modul/Eine Komponente ist eine geschlossene Einheit von einer Funktionalität</li>
 							<li class="fragment">Es kann z.B. eine Klasse sein...</li>
-							<li class="fragment">...oder sogar eine einzelne Methode bzw. Funktion</li>
+							<li class="fragment">...oder sogar mehrere Klassen, die eine Funktionalität abdecken</li>
 						</ul>
 					</section>
 					<section>
@@ -73,12 +73,16 @@
 							<code class="C#" data-trim data-line-numbers="">
 								public class Car
 								{
-									// weiterer code
-			
-									public void Drive()
-									{
-										Console.WriteLine("Wrumm!");
-									}
+									private readonly Engine _engine;
+									
+									// weiterer Code
+
+									public void StartEngine() => _engine.Start();
+								}
+
+								public class Engine
+								{								
+									public void Start() => Console.Writeline("Wrumm!");
 								}
 							</code>
 						</pre>
